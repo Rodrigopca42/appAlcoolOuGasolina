@@ -12,10 +12,22 @@ class _CombustivelState extends State<Combustivel> {
   TextEditingController _controllerAlcool = TextEditingController();
   TextEditingController _controllerGasolina = TextEditingController();
 
+  void _calcular(){
+
+    double? precoAlcool = double.tryParse(_controllerAlcool.text);
+
+    if(precoAlcool == null){
+      print("Preço Nulo");
+    }else{
+      print("Preço Não Nulo");
+    }
+
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff),
       appBar: AppBar(
         title: Text("Alcool ou Gasolina"),
         backgroundColor: Colors.blue,
@@ -68,7 +80,6 @@ class _CombustivelState extends State<Combustivel> {
                     backgroundColor: Colors.blue, // background
                     // foreground
                   ),
-                  onPressed: () { },
                   child: Text(
                     "Calcular",
                     style: TextStyle(
@@ -76,6 +87,9 @@ class _CombustivelState extends State<Combustivel> {
                         fontSize: 20
                     ),
                   ),
+                  onPressed: () {
+                    _calcular();
+                  },
                 ),
               ),
               Padding(
